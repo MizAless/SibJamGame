@@ -17,19 +17,18 @@ public class EnemyHealth : MonoBehaviour
         levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
+            //levelSystem.level.AddExp(epxAfterDeath);
+            //levelSystem.UpdateXPBarValue();
             levelSystem.level.AddExp(epxAfterDeath);
+            levelSystem.UpdateXPBarValue();
+            Debug.Log(levelSystem.level.Expirience);
             Destroy(gameObject);
+
         }
     }
 }

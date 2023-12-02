@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public float speed = 5f;
 
-    public int damage = 10;
+    public int damage = 20;
 
     private GameObject Player;
 
