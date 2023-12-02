@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
+    //public float speed = PlayerPrefs.GetInt("HeroSpeed");
     private Vector3 moveVector;
 
 
