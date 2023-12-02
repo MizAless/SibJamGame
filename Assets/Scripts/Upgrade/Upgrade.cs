@@ -8,6 +8,7 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     [SerializeField] private TMP_Text text_level;
+    private TMP_Text textCountOfPoints;
 
     public string skill;
     public int upgradeLimit;
@@ -18,10 +19,12 @@ public class Upgrade : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetFloat("HeroSpeed", 5);
+        textCountOfPoints.text = Convert.ToString("Points: " + levelSystem.level.Point);
     }
 
     private void Awake()
-    {;
+    {
+        textCountOfPoints = GameObject.Find("CountOfPoints").GetComponent<TMP_Text>();
         levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
     }
 
@@ -34,7 +37,8 @@ public class Upgrade : MonoBehaviour
             PlayerPrefs.SetFloat(skill, count + value);
             levelSystem.level.Point--;
             currentUpgrade++;
-            if(currentUpgrade == upgradeLimit) 
+            textCountOfPoints.text = Convert.ToString("Points: " + levelSystem.level.Point);
+            if (currentUpgrade == upgradeLimit) 
             {
                 text_level.text = "MAX";
             } else
