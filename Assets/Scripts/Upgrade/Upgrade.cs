@@ -7,13 +7,13 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
-    [SerializeField] private TMP_Text text_level;
+    [SerializeField] private TMP_Text levelSkillText;
     private TMP_Text textCountOfPoints;
 
     public string skill;
     public int upgradeLimit;
     public float value;
-    public LevelSystem levelSystem;
+    private LevelSystem levelSystem;
     int currentUpgrade = 1;
 
     void Start()
@@ -40,10 +40,10 @@ public class Upgrade : MonoBehaviour
             textCountOfPoints.text = Convert.ToString("Points: " + levelSystem.level.Point);
             if (currentUpgrade == upgradeLimit) 
             {
-                text_level.text = "MAX";
+                levelSkillText.text = "MAX";
             } else
             {
-                text_level.text = Convert.ToString(currentUpgrade);
+                levelSkillText.text = Convert.ToString(currentUpgrade);
             }
             
         }
