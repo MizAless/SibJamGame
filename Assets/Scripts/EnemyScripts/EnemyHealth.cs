@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health { get; private set; }
+    public int health = 20;
     public int epxAfterDeath;
     private LevelSystem levelSystem;
     // Start is called before the first frame update
     void Start()
     {
-        health = 20;
+        //health = 20;
     }
     private void Awake()
     {
