@@ -21,9 +21,10 @@ public class PlayerController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        //GameObject.FindGameObjectWithTag("Canvas").SetActive(true);
+        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
         //-----------------------------------------------------------------------------------
 
-       
+
         // ѕолучение позиции курсора в мировых координатах
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -50,9 +51,15 @@ public class PlayerController : MonoBehaviour
         // ¬ычисление угла поворота и применение его к WeaponHolder
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         WeaponHolder.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        
+
 
 
 
     }
+
+    public void StatsUpgrade()
+    {
+        speed = PlayerPrefs.GetInt("HeroSpeed");
+    }
+
 }

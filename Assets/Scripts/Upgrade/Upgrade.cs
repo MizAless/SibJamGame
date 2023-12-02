@@ -7,6 +7,11 @@ public class Upgrade : MonoBehaviour
     public string skill;
     int point = 10;
 
+    void Start()
+    {
+        PlayerPrefs.SetInt(skill, 5);
+    }
+
     public void productUpgrade() {
         if(point > 0) {
             int count = PlayerPrefs.GetInt(skill);
