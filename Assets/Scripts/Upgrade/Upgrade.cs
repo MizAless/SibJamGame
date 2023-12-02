@@ -1,23 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
+    [SerializeField] private TMP_Text text_level;
+
     public string skill;
-    int point = 10;
+    public int upgradeLimit;
+    public float value;
+    public LevelSystem levelSystem;
+    int currentUpgrade = 1;
 
     void Start()
     {
-        PlayerPrefs.SetInt(skill, 5);
+        PlayerPrefs.SetFloat("HeroSpeed", 5);
     }
 
-    public void productUpgrade() {
-        if(point > 0) {
-            int count = PlayerPrefs.GetInt(skill);
-            PlayerPrefs.SetInt(skill, count + 1);
-            point--;
+    private void Awake()
+    {;
+        levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
+    }
+
+    public void ProductUpgrade() {
+
+        float count = PlayerPrefs.GetFloat(skill);
+        
+
+        if (levelSystem.level.Point > 0 && currentUpgrade < upgradeLimit) {
+            PlayerPrefs.SetFloat(skill, count + value);
+            levelSystem.level.Point--;
+            currentUpgrade++;
+            if(currentUpgrade == upgradeLimit) 
+            {
+                text_level.text = "MAX";
+            } else
+            {
+                text_level.text = Convert.ToString(currentUpgrade);
+            }
+            
         }
-        Debug.Log(PlayerPrefs.GetInt(skill));
+        Debug.Log(currentUpgrade);
+        Debug.Log(levelSystem.level.Point); 
     }
 }
