@@ -13,7 +13,7 @@ public class ShootController : MonoBehaviour
     void Update()
     {
         // Проверка на нажатие кнопки стрельбы и ограничение частоты выстрелов
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFireTime)
+        if (Input.GetButton("Fire1") && Time.time > nextFireTime)
         {
             // Создание снаряда
             Shoot();

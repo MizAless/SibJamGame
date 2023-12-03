@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4207623083301646755}
   - component: {fileID: 8199877258922124471}
   - component: {fileID: 788586645963163444}
+  - component: {fileID: 8791342832291639393}
   - component: {fileID: 5631997896779875629}
   - component: {fileID: 2990948698349405586}
   m_Layer: 0
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  damage: 10
 --- !u!114 &788586645963163444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +136,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d90df3ee57172478e5ab7be9b641f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  epxAfterDeath: 2000
+  health: 50
+  epxAfterDeath: 2240
+--- !u!114 &8791342832291639393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207303598875582386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdec290c13b07244da28213f6fd0d11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!50 &5631997896779875629
 Rigidbody2D:
   serializedVersion: 4

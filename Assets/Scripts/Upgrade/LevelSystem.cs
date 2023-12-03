@@ -68,7 +68,14 @@ public class LevelSystem : MonoBehaviour
     //public GameObject Indikator;
     public GameObject Fire;
     public Image LineXpImage;
+    public float XpLineSpeed = 0.5f;
     //public Animator CamAnimator;
+
+    private float ExpBuffer;
+    private float PartExp;
+
+    private int RageLevel = 0;
+    //private float nextTime;
 
     // Start is called before the first frame update
     void Awake()
@@ -77,15 +84,55 @@ public class LevelSystem : MonoBehaviour
         
     }
 
+    public void AddExp(int exp)
+    {
+        level.AddExp(exp);
+        ExpBuffer += exp;
+        PartExp = ExpBuffer * XpLineSpeed;
+    }
+
     public void UpdateXPBarValue()
     {
         float coef = (float)level.ExpOnLvl / (float)level.NeedExpLvl;
         LineXpImage.fillAmount = coef;
     }
 
+    public void SmoothUpdateIndikator()
+    {
+        var deltaTime = Time.deltaTime;
+        if (ExpBuffer > 0)
+        {
+            ExpBuffer -= PartExp * deltaTime;
+            var coef = PartExp * deltaTime / (float)level.NeedExpLvl;
+            LineXpImage.fillAmount += coef;
+            if (LineXpImage.fillAmount >= 1) LineXpImage.fillAmount = LineXpImage.fillAmount % 1f;
+        }
+        
+    }
+
+    public void FireIntens()
+    {
+        RageLevel = (int)(ExpBuffer % 2000f);
+        if (RageLevel > 5) RageLevel = 5;
+
+        var em = Fire.GetComponent<ParticleSystem>().emission;
+        //var rate = em.rateOverTime;
+        em.rateOverTime = RageLevel * 20f;
+        var shape = Fire.GetComponent<ParticleSystem>().shape;
+        shape.radius = 0.3f + RageLevel * 0.2f;
+        
+
+        //if (level.ValueLvl > 100)
+        //{
+        //    CamAnimator.SetBool("IsShake", true);
+        //}
+    }
+
     // Update is called once per frame
     void Update()
     {
+        SmoothUpdateIndikator();
+        FireIntens();
         //Indikator.transform.localScale = new Vector3(1, (float)level.ExpOnLvl / (float)level.NeedExpLvl);
         //var em = Fire.GetComponent<ParticleSystem>().emission;
         //var rate = em.rateOverTime;
@@ -101,7 +148,7 @@ public class LevelSystem : MonoBehaviour
         //    CamAnimator.SetBool("IsShake", true);
         //}
 
-       // LevelText.GetComponent<TextMesh>().text = "Level - " + level.ValueLvl.ToString();
+        // LevelText.GetComponent<TextMesh>().text = "Level - " + level.ValueLvl.ToString();
         //Debug.Log(level.ValueLvl);
         //Debug.Log(level.Expirience);
     }

@@ -5018,7 +5018,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0012, y: 0.0564, z: 0}
-  m_LocalScale: {x: 0.6731218, y: 3.3931096, z: 1}
+  m_LocalScale: {x: 34.76472, y: 175.24393, z: 51.647}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1219012669265702213}
@@ -5111,7 +5111,7 @@ GameObject:
   - component: {fileID: 3287116246878874446}
   - component: {fileID: 7518996359331658226}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: IndicatorLevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5126,14 +5126,14 @@ RectTransform:
   m_GameObject: {fileID: 2002322335624062182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0059724767, y: 0.0047779824, z: 0.0059724767}
+  m_LocalScale: {x: 0.020530388, y: 0.0047779824, z: 0.0059724767}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1219012669590176536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.33, y: 0.623}
+  m_AnchoredPosition: {x: -0.63, y: 0.623}
   m_SizeDelta: {x: 300.902, y: 96.551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3287116246878874446

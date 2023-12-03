@@ -7,8 +7,6 @@ public class EnemyController : MonoBehaviour
 {
     public float speed = 5f;
 
-    public int damage = 20;
-
     private GameObject Player;
 
     private Rigidbody2D Rigidbody;
@@ -24,13 +22,5 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 directionToPlayer = (Player.transform.position - transform.position).normalized;
         transform.position += directionToPlayer * speed * Time.deltaTime;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-        }
     }
 }
