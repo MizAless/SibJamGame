@@ -5,11 +5,16 @@ using UnityEngine.Rendering;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health { get; private set; }
+    public float health { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = PlayerPrefs.GetFloat("MaxHP");
+    }
+
+    public void StatsUpgrade()
+    {
+        health = PlayerPrefs.GetFloat("MaxHP") - (PlayerPrefs.GetFloat("MaxHP") - health);
     }
 
     // Update is called once per frame
@@ -25,12 +30,12 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
-        print(health);
+        //print(health);
     }
 
     private void Die()
     {
-        print("Die");
+        //print("Die");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

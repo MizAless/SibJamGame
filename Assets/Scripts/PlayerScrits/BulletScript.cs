@@ -5,14 +5,24 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public int damage = 10;
-    public float flyDistance = 10;
+    private float damage;
+    private float flyDistance;
     private Vector3 startPos;
 
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        damage = PlayerPrefs.GetFloat("HeroDamage");
+        flyDistance = PlayerPrefs.GetFloat("DistanceProjectile");
+    }
+
+    public void StatsUpgrade()
+    {
+        damage = PlayerPrefs.GetFloat("HeroDamage");
+        flyDistance = PlayerPrefs.GetFloat("DistanceProjectile");
+        //Debug.Log(damage);
+        Debug.Log(flyDistance);
     }
 
     // Update is called once per frame
@@ -28,13 +38,13 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage((int)damage);
             Destroy(gameObject);
         }
 
         if (collision.tag == "Kamikaze")
         {
-            collision.gameObject.GetComponent<KamikazeHealth>().TakeDamage(damage);
+            collision.gameObject.GetComponent<KamikazeHealth>().TakeDamage((int)damage);
             Destroy(gameObject);
         }
     }

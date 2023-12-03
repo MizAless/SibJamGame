@@ -18,8 +18,13 @@ public class Upgrade : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetFloat("HeroSpeed", 5);
-        textCountOfPoints.text = Convert.ToString("Points: " + levelSystem.level.Point);
+        PlayerPrefs.SetFloat("HeroSpeed", 5f);
+        PlayerPrefs.SetFloat("MaxHP", 100f);
+        PlayerPrefs.SetFloat("RateOfBullet", 0.5f);
+        PlayerPrefs.SetFloat("HeroDamage", 10f);
+        PlayerPrefs.SetFloat("SpeedProjectile", 10f);
+        PlayerPrefs.SetFloat("DistanceProjectile", 5f);
+        textCountOfPoints.text = Convert.ToString(levelSystem.level.Point);
     }
 
     private void Awake()
@@ -37,7 +42,7 @@ public class Upgrade : MonoBehaviour
             PlayerPrefs.SetFloat(skill, count + value);
             levelSystem.level.Point--;
             currentUpgrade++;
-            textCountOfPoints.text = Convert.ToString("Points: " + levelSystem.level.Point);
+            textCountOfPoints.text = Convert.ToString(levelSystem.level.Point);
             if (currentUpgrade == upgradeLimit) 
             {
                 levelSkillText.text = "MAX";
@@ -47,7 +52,7 @@ public class Upgrade : MonoBehaviour
             }
             
         }
-        Debug.Log(currentUpgrade);
-        Debug.Log(levelSystem.level.Point); 
+        //Debug.Log(currentUpgrade);
+        //Debug.Log(levelSystem.level.Point); 
     }
 }

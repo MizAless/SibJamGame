@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    //private float speed;
     //public float speed = PlayerPrefs.GetInt("HeroSpeed");
     private Vector3 moveVector;
 
@@ -27,13 +27,14 @@ public class PlayerController : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
+
     // Update is called once per frame
     void Update()
     {
         moveVector.x = Input.GetAxis("Horizontal");
         moveVector.y = Input.GetAxis("Vertical");
 
-        transform.position += moveVector * speed * Time.deltaTime;
+        transform.position += moveVector * PlayerPrefs.GetFloat("HeroSpeed") * Time.deltaTime;
 
 
 
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         // ѕолучение позиции курсора в мировых координатах
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        
         // ¬ычисление направлени€ курсора относительно WeaponHolder
         Vector3 direction = cursorPosition - transform.position;
         direction.Normalize();
@@ -55,11 +56,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-    }
-
-    public void StatsUpgrade()
-    {
-        speed = PlayerPrefs.GetFloat("HeroSpeed");
     }
 
 }

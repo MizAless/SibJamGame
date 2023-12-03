@@ -5,10 +5,24 @@ public class ShootController : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
-    public float bulletSpeed = 10.0f;
-    public float fireRate = 2f; // Скорость стрельбы в выстрелах в секунду
+    public float bulletSpeed;
+    public float fireRate; // Скорость стрельбы в выстрелах в секунду
 
     private float nextFireTime = 0;
+
+    void Start()
+    {
+        fireRate = PlayerPrefs.GetFloat("RateOfBullet");
+        bulletSpeed = PlayerPrefs.GetFloat("SpeedProjectile");
+    }
+
+    public void StatsUpgrade()
+    {
+        fireRate= PlayerPrefs.GetFloat("RateOfBullet");
+        bulletSpeed = PlayerPrefs.GetFloat("SpeedProjectile");
+        //Debug.Log(fireRate);
+        //Debug.Log(bulletSpeed);
+    }
 
     void Update()
     {

@@ -28,7 +28,7 @@ public class Level
         ValueLvl = value;
         Expirience = expirience;
         NeedExpLvl = needExpLvl;
-        Point = value;
+        Point = 0;
         LastValueLvl = value;
     }
 
@@ -36,14 +36,14 @@ public class Level
     {
         Point++;
         textCountOfPoints = GameObject.Find("CountOfPoints").GetComponent<TMP_Text>();
-        textCountOfPoints.text = Convert.ToString("Points: " + Point);
+        textCountOfPoints.text = Convert.ToString(Point);
     }
 
     private void AddLevel()
     {
 
         textLevelIndicator = GameObject.Find("IndicatorLevelText").GetComponent<TMP_Text>();
-        textLevelIndicator.text = Convert.ToString("Level: " + Point);
+        textLevelIndicator.text = Convert.ToString("Level: " + ValueLvl);
     }
 
     public void AddExp(int exp)
@@ -80,7 +80,7 @@ public class LevelSystem : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        level = new Level(1, 0, 500);
+        level = new Level(1, 100, 100);
         LineXpImage.fillAmount = 0;
     }
 

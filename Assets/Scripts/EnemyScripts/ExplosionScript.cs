@@ -33,7 +33,7 @@ public class ExplosionScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-            print("Hit");
+            //print("Hit");
         }
         if (collision.tag == "Enemy")
         {
