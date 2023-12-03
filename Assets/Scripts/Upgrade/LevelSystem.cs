@@ -81,7 +81,7 @@ public class LevelSystem : MonoBehaviour
     void Awake()
     {
         level = new Level(1, 0, 500);
-        
+        LineXpImage.fillAmount = 0;
     }
 
     public void AddExp(int exp)
