@@ -25,10 +25,19 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        print(health);
     }
 
     private void Die()
     {
         print("Die");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Explosion")
+        {
+            TakeDamage(50);
+        }
     }
 }

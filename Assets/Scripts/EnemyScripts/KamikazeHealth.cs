@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KamikazeHealth : EnemyHealth
+public class KamikazeHealth : MonoBehaviour
 {
+    public int health = 100;
+    public int epxAfterDeath = 0;
+
     private LevelSystem levelSystem;
     public GameObject Explosion;
     // Start is called before the first frame update
@@ -24,16 +27,22 @@ public class KamikazeHealth : EnemyHealth
     private void Die()
     {
         levelSystem.AddExp(epxAfterDeath);
-        Instantiate(Explosion, transform.position, Quaternion.identity);
         //Debug.Log(levelSystem.level.Expirience);
         Destroy(gameObject);
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            gameObject.GetComponent<EnemyHealth>().health = 0;
+            health = 0;
         }
     }
 }

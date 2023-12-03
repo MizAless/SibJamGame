@@ -8,7 +8,7 @@ public class ShootController : MonoBehaviour
     public float bulletSpeed = 10.0f;
     public float fireRate = 2f; // Скорость стрельбы в выстрелах в секунду
 
-    private float nextFireTime;
+    private float nextFireTime = 0;
 
     void Update()
     {

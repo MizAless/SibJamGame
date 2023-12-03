@@ -21,6 +21,15 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         Vector3 directionToPlayer = (Player.transform.position - transform.position).normalized;
+        if (directionToPlayer.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
         transform.position += directionToPlayer * speed * Time.deltaTime;
     }
 }

@@ -31,5 +31,11 @@ public class BulletScript : MonoBehaviour
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (collision.tag == "Kamikaze")
+        {
+            collision.gameObject.GetComponent<KamikazeHealth>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
