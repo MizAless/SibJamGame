@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = PlayerPrefs.GetFloat("MaxHP") - (PlayerPrefs.GetFloat("MaxHP") - health);
         MaxHp = PlayerPrefs.GetFloat("MaxHP");
+        Debug.Log(PlayerPrefs.GetFloat("MaxHP"));
         UpdateHPBarValue();
     }
 

@@ -14,7 +14,7 @@ public class Upgrade : MonoBehaviour
     public int upgradeLimit;
     public float value;
     private LevelSystem levelSystem;
-    int currentUpgrade = 1;
+    public int currentUpgrade = 1;
 
     void Start()
     {
