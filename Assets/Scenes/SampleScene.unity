@@ -1126,6 +1126,7 @@ MonoBehaviour:
   upgradeLimit: 1000
   value: 1
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!114 &396248855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,6 +1772,7 @@ MonoBehaviour:
   upgradeLimit: 1000
   value: 0.2
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!114 &469726557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2346,6 +2348,7 @@ MonoBehaviour:
   upgradeLimit: 5
   value: 1
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!114 &589373884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3162,6 +3165,7 @@ GameObject:
   - component: {fileID: 850977448}
   - component: {fileID: 850977455}
   - component: {fileID: 850977456}
+  - component: {fileID: 850977457}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3223,6 +3227,7 @@ MonoBehaviour:
   DeathScreen: {fileID: 433528461}
   hpBarImage: {fileID: 866399877}
   textHpBar: {fileID: 209310195}
+  soundFootsteps: {fileID: 850977457}
 --- !u!114 &850977451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3235,6 +3240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1379df7684eeeaf4ba30821593739752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioFootsteps: {fileID: 850977457}
   WeaponHolder: {fileID: 1005702551}
   weaponOffset: {x: 0.5, y: 0.5}
   weaponMoveSpeed: 5
@@ -3393,6 +3399,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &850977457
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850977447}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8f97be6614226ec469109572c28fd039, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &854201409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,6 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1379df7684eeeaf4ba30821593739752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioFootsteps: {fileID: 0}
   WeaponHolder: {fileID: 300029935}
   weaponOffset: {x: 0.5, y: 0.5}
   weaponMoveSpeed: 5
@@ -3530,6 +3633,7 @@ MonoBehaviour:
   DeathScreen: {fileID: 0}
   hpBarImage: {fileID: 0}
   textHpBar: {fileID: 0}
+  soundFootsteps: {fileID: 0}
 --- !u!114 &854201415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3645,7 +3749,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 022ba32bbaff0224fa225beabff18a25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3916,6 +4020,7 @@ MonoBehaviour:
   upgradeLimit: 1000
   value: 0.1
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!1 &871822312
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,6 +4474,7 @@ MonoBehaviour:
   upgradeLimit: 1000
   value: 10
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!114 &1058456567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8434,7 +8540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1381081796
 Animator:
   serializedVersion: 5
@@ -9213,6 +9319,7 @@ MonoBehaviour:
   upgradeLimit: 1000
   value: 0.1
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!114 &1622384470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9982,6 +10089,7 @@ MonoBehaviour:
   upgradeLimit: 1000
   value: 0.2
   currentUpgrade: 1
+  isUpgrade: 0
 --- !u!114 &1866807914
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class Upgrade : MonoBehaviour
     public float value;
     private LevelSystem levelSystem;
     public int currentUpgrade = 1;
+    public bool isUpgrade = false;
 
     void Start()
     {
@@ -33,6 +34,8 @@ public class Upgrade : MonoBehaviour
         textCountOfPoints = GameObject.Find("CountOfPoints").GetComponent<TMP_Text>();
         levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
     }
+
+
 
     public void ProductUpgrade() {
 
