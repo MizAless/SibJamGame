@@ -14,7 +14,6 @@ public class ChangeSpriteGun : MonoBehaviour
 
     void Update()
     {
-        bool ischange = false;
         for (int i = 1; i < sprites.Length; i++)
         {
             if (currentlvl.currentUpgrade == NeedLvl[i] && currentSprite.sprite != sprites[i])

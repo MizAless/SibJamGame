@@ -14,13 +14,12 @@ public class ChangeMusic : MonoBehaviour
         if (emptyEnemy.isEmpty == true)
         {
             music.clip = audioClips[0];
-            if(music.isPlaying == false)
+            if (music.isPlaying == false)
             {
                 music.Play();
             }
-            
         } else
-        { 
+        {
             music.clip = audioClips[1];
             if (music.isPlaying == false)
             {
