@@ -25,13 +25,10 @@ public class PlayerHealth : MonoBehaviour
     {
         var PrevMax = MaxHp;
         MaxHp = PlayerPrefs.GetFloat("MaxHP");
-<<<<<<< HEAD
-        Debug.Log(PlayerPrefs.GetFloat("MaxHP"));
-=======
+
 
         health *= (float)MaxHp / (float)PrevMax;
         health = (int)health;
->>>>>>> 4042b44b6baf849776a2d557b31d09a3d70c30fb
         UpdateHPBarValue();
     }
 

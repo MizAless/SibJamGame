@@ -20,6 +20,7 @@ public class EmptyEnemyOnLoc : MonoBehaviour
         if (Time.time > NeedTime) 
         {
             door.SetActive(false);
+            isEmpty = true;
         }
     }
 
