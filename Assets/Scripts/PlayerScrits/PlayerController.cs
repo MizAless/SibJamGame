@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     //public float speed = PlayerPrefs.GetInt("HeroSpeed");
     private Vector3 moveVector;
     private Animator animator;
-
+    public AudioSource audioFootsteps;
     public Transform WeaponHolder;
 
     // Смещение оружия относительно курсора
@@ -51,10 +51,19 @@ public class PlayerController : MonoBehaviour
         if (moveVector.x != 0 || moveVector.y != 0)
         {
             animator.SetBool("IsWalking", true);
+            if(audioFootsteps.isPlaying == false)
+            {
+                audioFootsteps.Play();
+            }
+            
         }
         else
         {
             animator.SetBool("IsWalking", false);
+            if (audioFootsteps.isPlaying == true)
+            {
+                audioFootsteps.Stop();
+            }
         }
 
         //-----------------------------------------------------------------------------------

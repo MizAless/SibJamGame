@@ -6,6 +6,10 @@ public class ShootController : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
+    public AudioSource shootSource;
+    public AudioClip[] shootsClips = new AudioClip[2];
+    public Upgrade currentlvl;
+    public int[] NeedLvl = new int[4];
     public float bulletSpeed;
     public float fireRate; // Скорость стрельбы в выстрелах в секунду
     public int projCount;
@@ -18,6 +22,7 @@ public class ShootController : MonoBehaviour
         fireRate = PlayerPrefs.GetFloat("RateOfBullet");
         bulletSpeed = PlayerPrefs.GetFloat("SpeedProjectile");
         projCount = (int)PlayerPrefs.GetFloat("CountProjectile");
+        shootSource.volume = 0.1f;
 }
 
     public void StatsUpgrade()
@@ -32,6 +37,13 @@ public class ShootController : MonoBehaviour
 
     void Update()
     {
+        for(int i = 0; i < NeedLvl.Length; i++)
+        {
+            if (NeedLvl[i] == currentlvl.currentUpgrade && shootSource.clip != shootsClips[i])
+            {
+                shootSource.clip = shootsClips[i];
+            }
+        }
         // Проверка на нажатие кнопки стрельбы и ограничение частоты выстрелов
         if (Input.GetButton("Fire1") && Time.time > nextFireTime)
         {
@@ -43,9 +55,11 @@ public class ShootController : MonoBehaviour
         }
     }
 
+
+
     void Shoot()
     {
-
+        shootSource.Play();
         List<GameObject> bulletList = new List<GameObject> { };
         var count = (int)PlayerPrefs.GetFloat("CountProjectile");
         for (int i = 0; i < count; i++)

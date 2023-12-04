@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject DeathScreen;
     public Image hpBarImage;
     public TMP_Text textHpBar;
+    public AudioSource soundFootsteps;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +72,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!DeathScreen.activeSelf)
         {
+            if(soundFootsteps.isPlaying == true)
+            {
+                soundFootsteps.Stop();
+            }
             Time.timeScale = 0;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
             DeathScreen.SetActive(true);

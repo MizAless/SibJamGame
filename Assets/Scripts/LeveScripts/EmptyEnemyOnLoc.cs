@@ -7,7 +7,7 @@ public class EmptyEnemyOnLoc : MonoBehaviour
     public GameObject door;
 
     private float NeedTime;
-    private bool isEmpty = false;
+    public bool isEmpty = false;
     // Start is called before the first frame update
     void Start()
     {
