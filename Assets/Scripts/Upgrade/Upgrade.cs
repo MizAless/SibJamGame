@@ -35,8 +35,6 @@ public class Upgrade : MonoBehaviour
         levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
     }
 
-
-
     public void ProductUpgrade() {
 
         float count = PlayerPrefs.GetFloat(skill);

@@ -80,7 +80,7 @@ public class LevelSystem : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        level = new Level(1, 100, 100);
+        level = new Level(1, 1500, 1500);
         LineXpImage.fillAmount = 0;
     }
 
