@@ -27,7 +27,7 @@ public class BossController : MonoBehaviour
             {
                 speed = 30f;
             }
-            else if (Vector2.Distance(transform.position, Player.transform.position) > 5)
+            else if (Vector2.Distance(transform.position, Player.transform.position) > 3)
             {
                 speed = 8;
             }
