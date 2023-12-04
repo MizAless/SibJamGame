@@ -54,14 +54,11 @@ public class ShootController : MonoBehaviour
             // ¬ычисл€ем угол отклонени€ дл€ каждой пули
             float deviationAngle = (int)(count / 2) * -5 + step * i;
 
-            // —оздаем пулю
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bulletList.Add(bullet);
 
-            // ѕолучаем направление пули с учетом угла отклонени€
             Vector2 bulletDirection = Quaternion.Euler(0, 0, deviationAngle) * bulletSpawnPoint.right;
 
-            // ”станавливаем направление движени€ пули
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
         }
 

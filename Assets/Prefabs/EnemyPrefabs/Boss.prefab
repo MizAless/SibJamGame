@@ -349,8 +349,8 @@ GameObject:
   - component: {fileID: 7243587998825556408}
   - component: {fileID: 8628335709106481391}
   - component: {fileID: 534440854324827164}
-  - component: {fileID: 2038305504931060792}
   - component: {fileID: 9197174020586543831}
+  - component: {fileID: 2966165743847675582}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -512,19 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100000
   epxAfterDeath: 10000
---- !u!114 &2038305504931060792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5512663255247989086}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84968c661ac3924294f92b74dbf58e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
+  MedKitPrefab: {fileID: 8240572672065746273, guid: c6a27c62b29859e4c8bbabe70ab86865, type: 3}
 --- !u!114 &9197174020586543831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +526,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &2966165743847675582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512663255247989086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2cf31d3808c7945b50d6f19b296f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4612664162611085361, guid: 87e7dd43767c26846ad3bd2ece989c26, type: 3}
+  bulletSpeed: 10
+  bulletCount: 36
 --- !u!1 &5925197232365699934
 GameObject:
   m_ObjectHideFlags: 0

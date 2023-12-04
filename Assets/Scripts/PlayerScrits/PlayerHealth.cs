@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using TMPro;
 using System;
+using Unity.Mathematics;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -22,9 +23,15 @@ public class PlayerHealth : MonoBehaviour
 
     public void StatsUpgrade()
     {
-        health = PlayerPrefs.GetFloat("MaxHP") - (PlayerPrefs.GetFloat("MaxHP") - health);
+        var PrevMax = MaxHp;
         MaxHp = PlayerPrefs.GetFloat("MaxHP");
+<<<<<<< HEAD
         Debug.Log(PlayerPrefs.GetFloat("MaxHP"));
+=======
+
+        health *= (float)MaxHp / (float)PrevMax;
+        health = (int)health;
+>>>>>>> 4042b44b6baf849776a2d557b31d09a3d70c30fb
         UpdateHPBarValue();
     }
 
@@ -51,6 +58,17 @@ public class PlayerHealth : MonoBehaviour
         }
         //print(health);
     }
+
+    public void Heal(int heal)
+    {
+        health += heal;
+        if (health > MaxHp)
+        {
+            health = MaxHp;
+        }
+        UpdateHPBarValue();
+    }
+
 
     private void Die()
     {

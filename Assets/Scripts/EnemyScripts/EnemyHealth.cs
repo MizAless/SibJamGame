@@ -6,11 +6,13 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health = 20;
     public int epxAfterDeath;
+    public GameObject MedKitPrefab;
     private LevelSystem levelSystem;
     // Start is called before the first frame update
     void Start()
     {
         //health = 20;
+        health += GameObject.FindGameObjectWithTag("Player").GetComponent<LevelSystem>().level.ValueLvl * 10;
     }
     private void Awake()
     {
@@ -26,6 +28,12 @@ public class EnemyHealth : MonoBehaviour
     {
         levelSystem.AddExp(epxAfterDeath);
         //Debug.Log(levelSystem.level.Expirience);
+
+        if (Random.Range(0, 5) == 0)
+        {
+            Instantiate(MedKitPrefab, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
     }
 
