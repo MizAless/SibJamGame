@@ -24,6 +24,7 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetFloat("HeroDamage", 10f);
         PlayerPrefs.SetFloat("SpeedProjectile", 10f);
         PlayerPrefs.SetFloat("DistanceProjectile", 5f);
+        PlayerPrefs.SetFloat("CountProjectile", 1f);
         textCountOfPoints.text = Convert.ToString(levelSystem.level.Point);
     }
 

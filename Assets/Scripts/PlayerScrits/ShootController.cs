@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootController : MonoBehaviour
@@ -7,6 +8,8 @@ public class ShootController : MonoBehaviour
     public Transform bulletSpawnPoint;
     public float bulletSpeed;
     public float fireRate; // Скорость стрельбы в выстрелах в секунду
+    public int projCount;
+
 
     private float nextFireTime = 0;
 
@@ -14,13 +17,16 @@ public class ShootController : MonoBehaviour
     {
         fireRate = PlayerPrefs.GetFloat("RateOfBullet");
         bulletSpeed = PlayerPrefs.GetFloat("SpeedProjectile");
-    }
+        projCount = (int)PlayerPrefs.GetFloat("CountProjectile");
+}
 
     public void StatsUpgrade()
     {
-        fireRate= PlayerPrefs.GetFloat("RateOfBullet");
+        fireRate = PlayerPrefs.GetFloat("RateOfBullet");
         bulletSpeed = PlayerPrefs.GetFloat("SpeedProjectile");
+        projCount = (int)PlayerPrefs.GetFloat("CountProjectile");
         //Debug.Log(fireRate);
+        //Debug.Log(projCount);
         //Debug.Log(bulletSpeed);
     }
 
@@ -39,13 +45,26 @@ public class ShootController : MonoBehaviour
 
     void Shoot()
     {
-        // Создание снаряда из префаба
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
-        // Направление движения снаряда (вперед)
-        Vector2 bulletDirection = bulletSpawnPoint.right;
+        List<GameObject> bulletList = new List<GameObject> { };
+        var count = (int)PlayerPrefs.GetFloat("CountProjectile");
+        for (int i = 0; i < count; i++)
+        {
+            int step = (count % 2 == 0) ? 10 : 5;
+            // Вычисляем угол отклонения для каждой пули
+            float deviationAngle = (int)(count / 2) * -5 + step * i;
 
-        // Назначение скорости движения снаряда
-        bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
+            // Создаем пулю
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bulletList.Add(bullet);
+
+            // Получаем направление пули с учетом угла отклонения
+            Vector2 bulletDirection = Quaternion.Euler(0, 0, deviationAngle) * bulletSpawnPoint.right;
+
+            // Устанавливаем направление движения пули
+            bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
+        }
+
+
     }
 }
