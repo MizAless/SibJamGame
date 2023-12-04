@@ -1866,6 +1866,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2055,6 +2056,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a615602137fe6448c390f147dcf90e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - {fileID: 0}
+  - {fileID: 0}
+  emptyEnemy: {fileID: 1260569318}
 --- !u!1 &540247983
 GameObject:
   m_ObjectHideFlags: 0
@@ -7586,7 +7603,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1257494282}
   - component: {fileID: 1257494281}
-  - component: {fileID: 1257494283}
   m_Layer: 0
   m_Name: Headlvl1
   m_TagString: Untagged
@@ -7661,9 +7677,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 751029808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!114 &1257494283
-=======
 --- !u!1 &1260569317
 GameObject:
   m_ObjectHideFlags: 0
@@ -7677,35 +7690,18 @@ GameObject:
   - component: {fileID: 1260569319}
   - component: {fileID: 1260569318}
   m_Layer: 0
-  m_Name: Square
+  m_Name: CountEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1260569318
->>>>>>> 4042b44b6baf849776a2d557b31d09a3d70c30fb
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1257494280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08259bfe959c38a42a119f980914a249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 725e604f7a100fa4095670bc2da26c03, type: 3}
-  - {fileID: 21300000, guid: def4d6fb8922d7541a16f75b1092be4e, type: 3}
-  - {fileID: 21300000, guid: 4adc4b5e978e51d4bbebff0e466db7c4, type: 3}
-  - {fileID: 21300000, guid: 1636921e248182242aae7dc2cb162822, type: 3}
-  NeedLvl: 010000000a000000140000001e000000
-  currentSprite: {fileID: 1257494281}
-  currentlvl: {fileID: 1058456566}
-=======
   m_GameObject: {fileID: 1260569317}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -7713,6 +7709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1287506278}
+  isEmpty: 0
 --- !u!61 &1260569319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7825,7 +7822,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 4042b44b6baf849776a2d557b31d09a3d70c30fb
 --- !u!1 &1279239345
 GameObject:
   m_ObjectHideFlags: 0
@@ -8485,11 +8481,7 @@ RectTransform:
   m_GameObject: {fileID: 1381081795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
-=======
   m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
->>>>>>> 4042b44b6baf849776a2d557b31d09a3d70c30fb
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1558729248}
@@ -9453,8 +9445,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3968bb6792287a946901c2d9be2cf468, type: 3}
   - {fileID: 21300000, guid: 4495d78648a629c4ba098314ed3ed0cb, type: 3}
   - {fileID: 21300000, guid: f0d2bbe3e6082ee44a9f2f0161a42312, type: 3}
-  - {fileID: 21300000, guid: 6599e1837c6950243bda0b06f8a687f7, type: 3}
-  NeedLvl: 0100000014000000280000003c000000
+  NeedLvl: 010000001400000028000000
   currentSprite: {fileID: 1734868332}
   currentlvl: {fileID: 1866807913}
 --- !u!1 &1759055235
@@ -10171,7 +10162,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940049181}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1001 &1945772243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10237,8 +10227,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afff95c637cd503488e5e03773861d4b, type: 3}
-=======
->>>>>>> 4042b44b6baf849776a2d557b31d09a3d70c30fb
 --- !u!1 &1959839004
 GameObject:
   m_ObjectHideFlags: 0
@@ -10895,8 +10883,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ac19631e787595a41a33e7f78cc262e6, type: 3}
   - {fileID: 21300000, guid: 515504db0e65ca4459e96d6a3189ab41, type: 3}
   - {fileID: 21300000, guid: 19603740b35956041908ce2ae371c40e, type: 3}
-  - {fileID: 21300000, guid: 10bda229d6e7d9141bb6a994bb109a7d, type: 3}
-  NeedLvl: 0100000014000000280000003c000000
+  NeedLvl: 010000001400000028000000
   currentSprite: {fileID: 540247985}
   weapon1: {fileID: 2089240599}
   weapon2: {fileID: 540247983}
@@ -10987,3 +10974,4 @@ SceneRoots:
   - {fileID: 1287506281}
   - {fileID: 1040256707}
   - {fileID: 1260569321}
+  - {fileID: 1945772243}
