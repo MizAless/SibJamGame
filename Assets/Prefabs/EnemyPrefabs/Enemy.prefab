@@ -308,8 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d90df3ee57172478e5ab7be9b641f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 10
   epxAfterDeath: 1000
+  MedKitPrefab: {fileID: 8240572672065746273, guid: c6a27c62b29859e4c8bbabe70ab86865, type: 3}
 --- !u!114 &6067698851836358022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdec290c13b07244da28213f6fd0d11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
 --- !u!95 &7129490901740782631
 Animator:
   serializedVersion: 5

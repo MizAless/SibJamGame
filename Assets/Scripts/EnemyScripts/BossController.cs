@@ -10,10 +10,13 @@ public class BossController : MonoBehaviour
 
     private Rigidbody2D Rigidbody;
 
+    private BossAttack bossAttack;
+
     private bool IsWalking = true;
     // Start is called before the first frame update
     void Start()
     {
+        bossAttack = GetComponent<BossAttack>();
         Player = GameObject.FindGameObjectWithTag("Player");
         Rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -23,17 +26,21 @@ public class BossController : MonoBehaviour
     {
         if (IsWalking)
         {
-            if (Vector2.Distance(transform.position, Player.transform.position) > 10)
+            if (Vector2.Distance(transform.position, Player.transform.position) > 10 && !bossAttack.IsAttack())
             {
                 speed = 30f;
             }
-            else if (Vector2.Distance(transform.position, Player.transform.position) > 3)
+            else if (Vector2.Distance(transform.position, Player.transform.position) > 3 && !bossAttack.IsAttack())
             {
                 speed = 8;
             }
             else
             {
-                speed = 0;
+                speed = 0.5f;
+                if (!bossAttack.IsAttack())
+                {
+                    bossAttack.StartAttack();
+                }
             }
 
             Vector3 directionToPlayer = (Player.transform.position - transform.position).normalized;
