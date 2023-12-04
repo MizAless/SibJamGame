@@ -55,8 +55,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!DeathScreen.activeSelf)
         {
+            Time.timeScale = 0;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
             DeathScreen.SetActive(true);
-            PlayerPrefs.SetFloat("HeroSpeed", 0);
+            //PlayerPrefs.SetFloat("HeroSpeed", 0);
         }
     }
 
