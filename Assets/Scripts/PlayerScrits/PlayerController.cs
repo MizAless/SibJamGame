@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     //private float speed;
     //public float speed = PlayerPrefs.GetInt("HeroSpeed");
     private Vector3 moveVector;
-
+    private Animator animator;
 
     public Transform WeaponHolder;
 
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         //GameObject.FindGameObjectWithTag("Canvas").SetActive(true);
         PlayerPrefs.DeleteAll();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -36,8 +37,25 @@ public class PlayerController : MonoBehaviour
 
         transform.position += moveVector * PlayerPrefs.GetFloat("HeroSpeed") * Time.deltaTime;
 
+        if (moveVector.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            GameObject.Find("WeaponHolder").transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            GameObject.Find("WeaponHolder").transform.localScale = new Vector3(-1, 1, 1);
+        }
 
-
+        if (moveVector.x != 0 || moveVector.y != 0)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
 
         //-----------------------------------------------------------------------------------
 

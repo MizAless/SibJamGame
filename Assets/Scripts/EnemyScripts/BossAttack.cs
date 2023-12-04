@@ -9,11 +9,13 @@ public class BossAttack : MonoBehaviour
     public float bulletSpeed;
     public int bulletCount = 36;
     private float startAttackTime;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         isAttack = false;
         startAttackTime = 0;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class BossAttack : MonoBehaviour
     {
         startAttackTime = Time.time;
         isAttack = true;
+        animator.SetBool("IsAttack", true);
     }
 
     private void Attack()
@@ -54,6 +57,7 @@ public class BossAttack : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
         }
         isAttack = false;
+        animator.SetBool("IsAttack", false);
     }
 
     public bool IsAttack() 
