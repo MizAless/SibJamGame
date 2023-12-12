@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //private float speed;
     //public float speed = PlayerPrefs.GetInt("HeroSpeed");
+    public GameObject MenuPause;
     private Vector3 moveVector;
     private Animator animator;
     public AudioSource audioFootsteps;
@@ -21,9 +22,11 @@ public class PlayerController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         //GameObject.FindGameObjectWithTag("Canvas").SetActive(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
+        Time.timeScale = 1;
         PlayerPrefs.DeleteAll();
         animator = GetComponent<Animator>();
     }
@@ -37,7 +40,13 @@ public class PlayerController : MonoBehaviour
 
         transform.position += moveVector * PlayerPrefs.GetFloat("HeroSpeed") * Time.deltaTime;
 
-        if (moveVector.x > 0)
+        if (Input.GetKey("escape"))
+        {
+            MenuPause.SetActive(true);
+        }
+
+
+            if (moveVector.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
             GameObject.Find("WeaponHolder").transform.localScale = new Vector3(1, 1, 1);

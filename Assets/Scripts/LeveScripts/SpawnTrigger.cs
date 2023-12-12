@@ -12,7 +12,11 @@ public class SpawnTrigger : MonoBehaviour
         {
             for (int i = 0; i < spawners.Length; i++)
             {
-                spawners[i].SetActive(true);
+                if(spawners[i].activeSelf == false)
+                {
+                    spawners[i].SetActive(true);
+                }
+                
             }
         }
     }
