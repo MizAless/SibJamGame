@@ -24,10 +24,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject.FindGameObjectWithTag("Canvas").SetActive(true);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
         Time.timeScale = 1;
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         animator = GetComponent<Animator>();
     }
 

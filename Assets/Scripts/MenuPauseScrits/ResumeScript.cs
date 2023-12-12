@@ -14,15 +14,17 @@ public class Resume : MonoBehaviour
     public void ResumeButton()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<ShootController>().enabled = true;
         Time.timeScale = 1;
         MenuPause.SetActive(false);
     }
 
     private void Update()
     {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Stop();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
-            Time.timeScale = 0;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Stop();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<ShootController>().enabled = false;
+        Time.timeScale = 0;
         
     }
 }
